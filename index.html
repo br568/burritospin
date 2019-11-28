@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+  <title>Burrito Spin</title>
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="How long can you spin your burrito?">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <style>
+    body {
+      background-color: #110D1E;
+      overflow: hidden;
+    }
+
+    .burrito_spin {
+      -webkit-animation: spin 2s linear infinite;
+      animation: spin 2s linear infinite;
+    }
+
+    .burrito_style {
+      pointer-events: none;
+      width: 500px;
+      height: 325px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin: -162px 0 0 -250px;
+    }
+
+    #loader {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      z-index: 1;
+      width: 150px;
+      height: 150px;
+      margin: -75px 0 0 -75px;
+      border: 20px solid #ffffff;
+      border-radius: 50%;
+      border-top: 20px solid #ff0066;
+      width: 120px;
+      height: 120px;
+      -webkit-animation: spin 1s infinite;
+      animation: spin 1s infinite;
+    }
+
+    #body {
+      display: none;
+      text-align: center;
+    }
+
+    .animate_bottom {
+      -webkit-animation-name: animatebottom;
+      -webkit-animation-duration: 1s;
+      animation-name: animatebottom;
+      animation-duration: 1s
+    }
+
+    @-webkit-keyframes animatebottom {
+      from {
+        opacity: 0
+      }
+
+      to {
+        opacity: 1
+      }
+    }
+
+    @keyframes animatebottom {
+      from {
+        opacity: 0
+      }
+
+      to {
+        opacity: 1
+      }
+    }
+
+    @-webkit-keyframes spin {
+      0% {
+        -webkit-transform: rotate(0deg);
+      }
+
+      100% {
+        -webkit-transform: rotate(360deg);
+      }
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+  <script>
+    function showPage() {
+      document.getElementById("loader").style.display = "none";
+      document.getElementById("body").style.display = "block";
+    }
+  </script>
+</head>
+
+<body onload="showPage()">
+  <div id="loader"></div>
+  <div id="body" class="animate_bottom">
+    <audio src="/mariachi.mp3" autoplay="true" loop="true"></audio>
+    <img src="/burrito.png" class="burrito_spin burrito_style">
+  </div>
+</body>
+
+</html>
